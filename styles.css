@@ -1,0 +1,17 @@
+/* Fix current broken Buttons issue */
+.get-repo-modal-options {
+  overflow: hidden;
+  border-radius: 4px;
+}
+.get-repo-modal-options .mt-2 {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1px;
+}
+.get-repo-modal-options .mt-2 .mt-2 {
+  margin-top: auto !important;
+}
+.file-navigation .get-repo-modal-options .get-repo-btn {
+  border-right: 1px solid #e1e4e8;
+  border-radius: 0 !important;
+}

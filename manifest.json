@@ -1,17 +1,33 @@
 {
-   "content_scripts": [ {
-      "js": [ "script.js" ],
-      "css": ["styles.css"],
-      "matches": [ "https://github.com/*" ]
-   } ],
-   "description": "Add button to any github repo to clone it into SourceTree",
-   "icons": {
-      "128": "icon/icon128.png",
-      "16": "icon/icon16.png",
-      "48": "icon/icon48.png"
-   },
-   "manifest_version": 2,
-   "name": "Github Clone to Sourcetree Button",
-   "homepage_url": "https://github.com/GarethBlain/Github-Clone-to-Sourcetree-Button",
-   "version": "0.0.1"
+  "content_scripts": [
+    {
+      "js": [
+        "script.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "matches": [
+        "https://github.com/*"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "description": "Add button to any github repo to clone it into SourceTree",
+  "icons": {
+    "128": "icon/icon128.png",
+    "16": "icon/icon16.png",
+    "48": "icon/icon48.png"
+  },
+  "manifest_version": 2,
+  "name": "Github Clone to Sourcetree Button",
+  "homepage_url": "https://github.com/GarethBlain/Github-Clone-to-Sourcetree-Button",
+  "version": "1.0.0",
+  "permissions": [
+    "tabs"
+  ]
 }

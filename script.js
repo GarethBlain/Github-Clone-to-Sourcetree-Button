@@ -1,7 +1,7 @@
 (function () {
   // The ID we will use for the Clone to SourceTree Button
   var cloneToSourceTreeButtonID = 'clone-to-sourcetree';
-  var svgIcon = '<svg width="16" height="16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="sourcetree" class="octicon octicon-file-zip mr-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" style="color: #0047B3;"><path fill="currentColor" d="M427.2 203c0-112.1-90.9-203-203-203C112.1-.2 21.2 90.6 21 202.6A202.86 202.86 0 0 0 161.5 396v101.7a14.3 14.3 0 0 0 14.3 14.3h96.4a14.3 14.3 0 0 0 14.3-14.3V396.1A203.18 203.18 0 0 0 427.2 203zm-271.6 0c0-90.8 137.3-90.8 137.3 0-.1 89.9-137.3 91-137.3 0z"></path></svg>';
+  var svgIcon = '<svg class="octicon octicon-sourcetree mr-3" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M5.5 14.4v-1.5c-2.6-1.2-4.2-3.9-4-6.7c0.3-3.5 3.4-6.3 6.9-6.2C12.1 0 15.1 3 15.1 6.7c0 2.7-1.6 5.1-4 6.2v1.5 c0 1-0.8 1.7-1.7 1.7H7.3C6.3 16.1 5.5 15.3 5.5 14.4z M9.6 14.6v-2.8l0.3-0.1c1.7-0.6 3.1-2 3.5-3.8c0.8-3.9-2.6-7.2-6.5-6.2 C5.4 2 4 3.2 3.5 4.7c-1.1 2.9 0.4 5.9 3.1 6.9l0.5 0.2v2.8H9.6z M8.9 9.4C6.9 9.8 5.2 8.1 5.6 6.1C5.8 5 6.7 4.2 7.8 4 c1.9-0.4 3.6 1.3 3.3 3.3C10.8 8.3 9.9 9.2 8.9 9.4z M8.3 5.4C7.6 5.4 7.1 6 7.1 6.7c0 0.7 0.6 1.2 1.2 1.2s1.2-0.6 1.2-1.2 C9.6 6 9 5.4 8.3 5.4z"></path></svg>';
 
   document.onreadystatechange = () => {
     if (document.readyState === 'complete') {

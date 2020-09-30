@@ -24,46 +24,60 @@
   function AddButton() {
     console.log('Adding Button');
     // Grab the repo modal (popup)
-    var repoModal = document.getElementsByClassName("get-repo-modal")[0];
+    var repoModal = document.getElementsByTagName('get-repo')[0];
     // Make sure the repo modal window exits
     if (repoModal) {
       console.log('Got Repo Model');
       // Grab the URL from the HTTPS (Currently) connection
-      var httpsGroup = repoModal.getElementsByClassName("https-clone-options")[0];
-      var inputGroup = httpsGroup.getElementsByClassName("input-group")[0];
-      var gitUrlLayout = inputGroup.getElementsByClassName("input-monospace")[0];
-      var sourceTreeUrl = gitUrlLayout.value;
-      console.log('Sourcetree URL: ' + sourceTreeUrl);
-      // Grab the buttons section at the bottom of the modal window to add our new button
-      var buttonLayout = repoModal.getElementsByClassName("list-style-none")[0];
+      var tabContainer = repoModal.getElementsByTagName("tab-container")[0];
+      var inputs = tabContainer.getElementsByTagName("input");
+      var sourceTreeUrl;
+      // Search for a url that is a http url for git
+      for (let input of inputs) {
+        if (input.defaultValue.startsWith('http') && input.defaultValue.endsWith('.git')){
+          sourceTreeUrl = input.defaultValue;
+        }
+      }
+      // Check we found it before we try to use it!
+      if (sourceTreeUrl.length > 0) {
+        console.log('Sourcetree URL: ' + sourceTreeUrl);
 
-      // Create the list item
-      var cloneToSourceTreeButton = document.createElement('li');
-      cloneToSourceTreeButton.classList.add('Box-row');
-      cloneToSourceTreeButton.classList.add('Box-row--hover-gray');
-      cloneToSourceTreeButton.classList.add('p-0');
-      cloneToSourceTreeButton.classList.add('CloneToSourcetree');
-      // Set an ID so we can check for it later
-      cloneToSourceTreeButton.id = cloneToSourceTreeButtonID;
+        // Grab the buttons section at the bottom of the modal window to add our new button
+        var buttonLayout = repoModal.getElementsByClassName("list-style-none")[0];
 
-      // Create the new button (link)
-      var cloneToSourceTreeButtonLink = document.createElement('a');
-      // Set the required classes (just match the current existing button's classes)
-      cloneToSourceTreeButtonLink.classList.add('d-flex');
-      cloneToSourceTreeButtonLink.classList.add('flex-items-center');
-      cloneToSourceTreeButtonLink.classList.add('text-gray-dark');
-      cloneToSourceTreeButtonLink.classList.add('text-bold');
-      cloneToSourceTreeButtonLink.classList.add('no-underline');
-      cloneToSourceTreeButtonLink.classList.add('p-3');
-      // Set the button text
-      cloneToSourceTreeButtonLink.innerHTML = svgIcon + " Open in Sourcetree";
-      // Set it's link to open the SourceTree URL in SourceTree
-      cloneToSourceTreeButtonLink.setAttribute('href', "sourcetree://cloneRepo?cloneUrl=" + sourceTreeUrl + "&type=github");
-      // Add our link to our list entry
-      cloneToSourceTreeButton.appendChild(cloneToSourceTreeButtonLink);
+        // Create the list item
+        var cloneToSourceTreeButton = document.createElement('li');
+        cloneToSourceTreeButton.classList.add('Box-row');
+        cloneToSourceTreeButton.classList.add('Box-row--hover-gray');
+        cloneToSourceTreeButton.classList.add('p-0');
+        cloneToSourceTreeButton.classList.add('CloneToSourcetree');
+        // Set an ID so we can check for it later
+        cloneToSourceTreeButton.id = cloneToSourceTreeButtonID;
 
-      // Add our button(in list entry) to the existing button layout we got before
-      buttonLayout.appendChild(cloneToSourceTreeButton);
+        // Create the new button (link)
+        var cloneToSourceTreeButtonLink = document.createElement('a');
+        // Set the required classes (just match the current existing button's classes)
+        cloneToSourceTreeButtonLink.classList.add('d-flex');
+        cloneToSourceTreeButtonLink.classList.add('flex-items-center');
+        cloneToSourceTreeButtonLink.classList.add('text-gray-dark');
+        cloneToSourceTreeButtonLink.classList.add('text-bold');
+        cloneToSourceTreeButtonLink.classList.add('no-underline');
+        cloneToSourceTreeButtonLink.classList.add('p-3');
+        // Set the button text
+        cloneToSourceTreeButtonLink.innerHTML = svgIcon + " Open in Sourcetree";
+        // Set it's link to open the SourceTree URL in SourceTree
+        cloneToSourceTreeButtonLink.setAttribute('href', "sourcetree://cloneRepo?cloneUrl=" + sourceTreeUrl + "&type=github");
+        // Add our link to our list entry
+        cloneToSourceTreeButton.appendChild(cloneToSourceTreeButtonLink);
+
+        // Add our button(in list entry) to the existing button layout we got before
+        buttonLayout.appendChild(cloneToSourceTreeButton);
+      } else {
+        console.warn("git http URL not found!");
+      }
+      
+    } else {
+      console.log('Repo Model not found');
     }
   }
 

@@ -26,7 +26,7 @@
   "manifest_version": 2,
   "name": "Github Clone to Sourcetree Button",
   "homepage_url": "https://github.com/GarethBlain/Github-Clone-to-Sourcetree-Button",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "permissions": [
     "tabs"
   ]

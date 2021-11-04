@@ -34,7 +34,7 @@
       var sourceTreeUrl;
       // Search for a url that is a http url for git
       for (let input of inputs) {
-        if (input.defaultValue.startsWith('http') && input.defaultValue.endsWith('.git')){
+        if (input.defaultValue.startsWith('git@github.com') && input.defaultValue.endsWith('.git')){
           sourceTreeUrl = input.defaultValue;
         }
       }

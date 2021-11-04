@@ -32,8 +32,8 @@
     var protocolSelectors = repoModal.querySelectorAll('[name=protocol_selector]');
     for (var element of protocolSelectors) {
       element.addEventListener('click', function(event) {
-        var protocol = event.currentTarget.value
-        callback(protocol)
+        var protocol = event.currentTarget.value;
+        callback(protocol);
       });
     }
   }
@@ -105,6 +105,7 @@
     cloneToSourceTreeButtonLink.classList.add('no-underline');
     cloneToSourceTreeButtonLink.classList.add('p-3');
     // Set the button text
+    if (protocol === 'http') protocol = 'https';
     cloneToSourceTreeButtonLink.innerHTML = svgIcon + " Open in Sourcetree (" + protocol.toUpperCase() + ")";
     // Set it's link to open the SourceTree URL in SourceTree
     cloneToSourceTreeButtonLink.setAttribute('href', "sourcetree://cloneRepo?cloneUrl=" + cloneUrl + "&type=github");
